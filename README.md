@@ -58,10 +58,12 @@ clDocker
 ## 复制php7.2-fpm配置文件。
 sudo chmod +x ./basic_build.sh
 ./basic_build.sh
+
 ## 创建mysql、redis、nginx容器。
 ## 容器连接网络为custom，容器间通过服务名可互相访问。
 cd basic
 sudo docker-compose up -d
+
 ## 示例golang apiserver应用
 ## golang 交叉编译linux:
 ## CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o apiserver .
@@ -73,9 +75,11 @@ sudo docker-compose up -d
 ## golang/Dockerfile 构建镜像alpine并安装tzdata、openssl、ca-certificates。
 cd golang
 sudo docker-compose up -d
+
 ## 创建php7.2-fpm容器，镜像包含composer
 cd php-7.2-fpm
 sudo docker-compose up -d
+
 ## 示例php应用
 ## 上传应用至宿主机/webroot/php
 ```
