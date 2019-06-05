@@ -2,7 +2,7 @@ version: "3"
 services:
   apiserver:
     build: ../
-    image: "go-alpine:latest"
+    image: "chenglongcl/go-alpine:latest"
     container_name: apiserver-container
     hostname: apiserver
     ports:
