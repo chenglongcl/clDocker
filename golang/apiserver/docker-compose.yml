@@ -1,0 +1,21 @@
+version: "3"
+services:
+  apiserver:
+    build: ../
+    image: "go-alpine:latest"
+    container_name: apiserver-container
+    hostname: apiserver
+    ports:
+    - "8001:8001"
+    networks:
+    - custom
+    expose:
+    - "8001"
+    volumes:
+    - /dockerMaps/tool/wait-for:/go/src/wait-for
+    - /webroot/go/apiserver:/go/src/apiserver
+    command: sh -c 'chmod +x ./wait-for && ./wait-for mysql:3306 redis:6379 && cd apiserver && ./apiserver'
+    restart: always
+networks:
+  custom:
+    external: true
