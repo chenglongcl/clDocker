@@ -1,0 +1,17 @@
+version: "3"
+services:
+  apiserver:
+    build: ../
+    image: "chenglongcl/go-alpine:latest"
+    container_name: consumer-container
+    hostname: consumer
+    networks:
+    - custom    
+    volumes:
+    - /dockerMaps/tool/wait-for:/go/src/wait-for
+    - /webroot/go/consumer:/go/src/consumer
+    command: sh -c 'chmod +x ./wait-for && ./wait-for mysql:3306 redis:6379 && cd consumer && ./consumer'
+    restart: always
+networks:
+  custom:
+    external: true

@@ -1,0 +1,23 @@
+version: "3"
+services:  
+  rabbitmq:
+    image: rabbitmq:3.7-management
+    container_name: "rabbitmq-3.7-container"
+    hostname: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - custom      
+    environment:
+      RABBITMQ_ERLANG_COOKIE: chenglongcl
+      RABBITMQ_DEFAULT_USER: root
+      RABBITMQ_DEFAULT_PASS: 123456
+    volumes:
+      - /dockerMaps/data/rabbitmq-3.7-management:/var/lib/rabbitmq
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+    restart: always
+networks:
+  custom:
+    external: true
