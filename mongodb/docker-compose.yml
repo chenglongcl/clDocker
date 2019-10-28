@@ -1,0 +1,20 @@
+version: "3"
+services:
+  mongo:
+    image: mongo:3.6
+    container_name: "mongo-3.6-container"
+    hostname: mongodb
+    ports:
+      - 27017:27017
+    networks:
+      - custom
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: 20190604
+      TZ: Asia/Shanghai
+    volumes:
+      - /dockerMaps/data/mongo-3.6:/data/db
+    restart: always
+networks:
+  custom:
+    external: true
