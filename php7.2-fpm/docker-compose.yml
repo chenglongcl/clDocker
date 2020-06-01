@@ -1,18 +1,18 @@
-version: '3'
+version: "3"
 services:
   php-fpm:
-    build: .
+    #build: .
     image: "chenglongcl/php7.2:latest"
     container_name: php-7.2-container
     hostname: php-fpm
     ports:
       - "9000:9000"
     networks:
-    - custom
+      - custom
     volumes:
-      - /webroot/php:/data/www
-      - /dockerMaps/conf/php7.2-fpm/php.ini:/usr/local/etc/php/php.ini
-      - /dockerMaps/logs/php7.2-fpm:/var/log/php-fpm
+      - ~/webroot/php:/data/www
+      - ~/dockerMaps/conf/php7.2-fpm/php.ini:/usr/local/etc/php/php.ini
+      - ~/dockerMaps/logs/php7.2-fpm:/var/log/php-fpm
     restart: always
     command: php-fpm
 networks:

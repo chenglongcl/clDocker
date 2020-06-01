@@ -1,5 +1,5 @@
 version: "3"
-services:  
+services:
   mysql:
     image: mysql:5.7.21
     container_name: mysql-5.7.21-container
@@ -12,9 +12,9 @@ services:
       MYSQL_ROOT_PASSWORD: 20190604
       TZ: Asia/Shanghai
     volumes:
-      - /dockerMaps/data/mysql5.7.21:/var/lib/mysql
-      - /dockerMaps/conf/mysql5.7.21/conf.d:/etc/mysql/conf.d
-      - /dockerMaps/logs/mysql5.7.21:/logs
+      - ~/dockerMaps/data/mysql5.7.21:/var/lib/mysql
+      - ~/dockerMaps/conf/mysql5.7.21/conf.d:/etc/mysql/conf.d
+      - ~/dockerMaps/logs/mysql5.7.21:/logs
     restart: always
   redis:
     image: redis:3.2.12
@@ -27,12 +27,12 @@ services:
     environment:
       TZ: Asia/Shanghai
     volumes:
-      - /dockerMaps/data/redis3.2.12:/data
+      - ~/dockerMaps/data/redis3.2.12:/data
     command: redis-server --appendonly yes --requirepass "20190604"
     restart: always
   nginx:
     image: nginx:1.15.12
-    container_name: nginx-1.15.12-container   
+    container_name: nginx-1.15.12-container
     ports:
       - "80:80"
       - "443:443"
@@ -41,11 +41,11 @@ services:
     environment:
       TZ: Asia/Shanghai
     volumes:
-      - /webroot:/webroot
-      - /dockerMaps/conf/nginx1.15.12/nginx.conf:/etc/nginx/nginx.conf
-      - /dockerMaps/conf/nginx1.15.12/conf.d:/etc/nginx/conf.d
-      - /dockerMaps/logs/nginx1.15.12:/var/log/nginx
-      - /dockerMaps/other/nginx1.15.12/ssl:/ssl
+      - ~/webroot:/webroot
+      - ~/dockerMaps/conf/nginx1.15.12/nginx.conf:/etc/nginx/nginx.conf
+      - ~/dockerMaps/conf/nginx1.15.12/conf.d:/etc/nginx/conf.d
+      - ~/dockerMaps/logs/nginx1.15.12:/var/log/nginx
+      - ~/dockerMaps/other/nginx1.15.12/ssl:/ssl
     command: nginx -g 'daemon off;'
     restart: always
 networks:

@@ -13,7 +13,7 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: 20190604
       TZ: Asia/Shanghai
     volumes:
-      - /dockerMaps/data/mongo-3.6:/data/db
+      - ~/dockerMaps/data/mongo-3.6:/data/db
     restart: always
 networks:
   custom:

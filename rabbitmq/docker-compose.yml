@@ -14,7 +14,7 @@ services:
       RABBITMQ_DEFAULT_USER: root
       RABBITMQ_DEFAULT_PASS: 20190604
     volumes:
-      - /dockerMaps/data/rabbitmq-3.7-management:/var/lib/rabbitmq
+      - ~/dockerMaps/data/rabbitmq-3.7-management:/var/lib/rabbitmq
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
     restart: always
