@@ -19,6 +19,9 @@ build() {
     ~/dockerMaps/logs/php7.2-fpm
   #rabbitMQ
   sudo mkdir -p ~/dockerMaps/data/rabbitmq-3.7-management
+  #etcd
+  sudo mkdir -p ~/dockerMaps/data/etcd-3.4.9
+  sudo mkdir -p ~/dockerMaps/data/etcd-3.3.15
   #webroot:golang && php && html
   sudo mkdir -p ~/webroot/go \
     ~/webroot/php \
