@@ -1,0 +1,31 @@
+version: "3"
+services:
+  elasticsearch:
+    image: elasticsearch:7.10.1
+    container_name: elasticsearch-7.10.1-container
+    hostname: elasticsearch
+    ports:
+      - "9200:9200"
+    networks:
+      - custom
+    environment:
+      - "TZ=Asia/Shanghai"
+      # 开启内存锁定
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      # 指定单节点启动
+      - discovery.type=single-node
+    ulimits:
+      # 取消内存相关限制  用于开启内存锁定
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - ~/dockerMaps/conf/elasticsearch-7.10.1/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+      - ~/dockerMaps/data/elasticsearch-7.10.1:/usr/share/elasticsearch/data
+      - ~/dockerMaps/logs/elasticsearch-7.10.1:/usr/share/elasticsearch/logs
+      - ~/dockerMaps/other/elasticsearch-7.10.1/plugins:/usr/share/elasticsearch/plugins
+    restart: always
+networks:
+  custom:
+    external: true

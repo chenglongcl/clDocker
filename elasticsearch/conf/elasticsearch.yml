@@ -1,0 +1,7 @@
+network.host: 0.0.0.0
+network.bind_host: 0.0.0.0 #外网可访问
+
+http.cors.enabled: true
+http.cors.allow-origin: "*"
+xpack.security.enabled: true # 这条配置表示开启xpack认证机制 spring boot连接使用
+xpack.security.transport.ssl.enabled: true

@@ -22,6 +22,13 @@ build() {
   #etcd
   sudo mkdir -p ~/dockerMaps/data/etcd-3.4.9
   sudo mkdir -p ~/dockerMaps/data/etcd-3.3.15
+  #elasticsearch
+  mkdir -p ~/dockerMaps/data/elasticsearch-7.10.1 \
+    ~/dockerMaps/logs/elasticsearch-7.10.1 \
+    ~/dockerMaps/other/elasticsearch-7.10.1/plugins \
+    ~/dockerMaps/conf/elasticsearch-7.10.1
+  #kibana
+  mkdir -p ~/dockerMaps/conf/kibana-7.10.1
   #webroot:golang && php && html
   sudo mkdir -p ~/webroot/go \
     ~/webroot/php \
@@ -39,6 +46,10 @@ build() {
   sudo cp -r ./basic/conf/nginx1.15.12/conf.d/. ~/dockerMaps/conf/nginx1.15.12/conf.d
   #复制php7.2配置文件
   sudo cp -r ./php7.2-fpm/conf/. ~/dockerMaps/conf/php7.2-fpm
+  #复制elasticsearch配置文件
+  cp -r ./elasticsearch/conf/. ~/dockerMaps/conf/elasticsearch-7.10.1
+  #复制kibana配置文件
+  cp -r ./kibana/conf/. ~/dockerMaps/conf/kibana-7.10.1
   # create docker network
   sudo docker network create custom
 }
