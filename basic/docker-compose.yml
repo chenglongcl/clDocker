@@ -17,8 +17,8 @@ services:
       - ~/dockerMaps/logs/mysql5.7.21:/logs
     restart: always
   redis:
-    image: redis:3.2.12
-    container_name: redis-3.2.12-container
+    image: redis:5.0.14
+    container_name: redis-5.0.14-container
     hostname: redis
     ports:
       - "6379:6379"
@@ -27,7 +27,7 @@ services:
     environment:
       TZ: Asia/Shanghai
     volumes:
-      - ~/dockerMaps/data/redis3.2.12:/data
+      - ~/dockerMaps/data/redis5.0.14:/data
     command: redis-server --appendonly yes --requirepass "20190604"
     restart: always
   nginx:

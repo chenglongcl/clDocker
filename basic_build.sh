@@ -9,8 +9,8 @@ build() {
   sudo mkdir -p ~/dockerMaps/data/mysql5.7.21 \
     ~/dockerMaps/conf/mysql5.7.21/conf.d \
     ~/dockerMaps/logs/mysql5.7.21
-  #redis3.2.12
-  sudo mkdir -p ~/dockerMaps/data/redis3.2.12
+  #redis5.0.14
+  sudo mkdir -p ~/dockerMaps/data/redis5.0.14
   #nginx1.15.12
   sudo mkdir -p ~/dockerMaps/conf/nginx1.15.12/conf.d \
     ~/dockerMaps/logs/nginx1.15.12

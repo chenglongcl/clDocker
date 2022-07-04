@@ -3,7 +3,7 @@
  - alpine:latest
  - nginx:1.5.12
  - mysql:5.7.21
- - redis:3.2.12
+ - redis:5.0.14
  - php:7.2-fpm
 
 
